@@ -1,11 +1,14 @@
 import React from 'react';
+import './Footer.css';
 
 class Footer extends React.Component {
   render() {
     return(
-      <nav class="navbar fixed-bottom navbar-light bg-light">
-        <a class="navbar-brand" href="#">Fixed bottom</a>
-      </nav>
+      <footer className="footer bg-primary">
+        <div className="container">
+          <span className="text-muted">Place sticky footer content here.</span>
+        </div>
+      </footer>
     );
   }
 }
