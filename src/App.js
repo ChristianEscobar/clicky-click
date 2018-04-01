@@ -6,12 +6,31 @@ import JumboTron from './components/JumboTron';
 import Navigation from './components/Navigation';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentScore: 0,
+      topScore: 0
+    }
+
+    this.updateScore = this.updateScore.bind(this);
+  }
+
+  updateScore(score, hiScore) {
+    this.setState({
+      currentScore: score,
+      topScore: hiScore
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <Navigation />
+        <Navigation score={this.state.currentScore} topScore={this.state.topScore}/>
         <JumboTron />
-        <Content />
+        <Content changeScore={this.updateScore} />
         <Footer />
       </div>
     );

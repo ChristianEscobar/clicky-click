@@ -34,24 +34,30 @@ class Content extends React.Component {
   }
 
   handleImageClick(event) {
-    console.log(this.state);
     // Check if this image has already been clicked
     // If image has been clicked, reset score
     // Otherwise, add to score and shuffle images
     if(this.state.imagesClicked.includes(event.target.src)) {
-      console.log("image clicked!");
+
       // The image has been clicked.
       // Reset score to zero
+      this.props.changeScore(0, this.state.topScore);
+
       this.setState({
         currentScore: 0
       });
     } else {
-      console.log("new image clicked!");
       let score = this.state.currentScore + 1;
+
+      let currentTopScore = this.state.topScore;
+
+      currentTopScore = (currentTopScore < score) ? score : currentTopScore;
+
+      this.props.changeScore(score, currentTopScore);      
 
       this.setState({
         imagesClicked: [...this.state.imagesClicked, event.target.src],
-        topScore: (this.state.topScore < score) ? score : this.state.topScore,
+        topScore: currentTopScore,
         currentScore: score
       })
     }

@@ -9,7 +9,7 @@ class Navigation extends React.Component {
       <nav className="navbar navbar-dark bg-primary">
         <a className="navbar-brand" href="/">Fixed top</a>
         <Messages message={`This is a test`}/>
-        <Score /> 
+        <Score currentScore={this.props.score} topScore={this.props.topScore}/> 
       </nav>
     );
   }
