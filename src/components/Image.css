@@ -1,5 +1,13 @@
-.card {
-  border: none;
-  width: 200px;
-  height: 200px;
+.card-body > img {
+  padding: 5px;
+  border: 1px solid;
+}
+
+.card-body {
+  padding: 20px;
+  border: 1px solid;
+}
+
+.card:hover {
+  cursor: pointer;
 }

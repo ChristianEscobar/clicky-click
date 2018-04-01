@@ -6,7 +6,8 @@ class Image extends React.Component {
     super(props);
 
     this.state = {
-      imageName: this.props.imageName
+      imageName: this.props.imageName,
+      clicked: false
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -14,7 +15,14 @@ class Image extends React.Component {
   }
 
   handleClick(event) {
-    console.log("clicked!");
+  
+    if(this.state.clicked) {
+      // Already clicked so reset score!
+    } else {
+      this.setState({
+        clicked: true
+      });
+    }
   };
 
   handleChange(event) {
@@ -25,7 +33,7 @@ class Image extends React.Component {
     return(
       <div className="card">
         <div className="card-body">
-          <img className="img-responsive img-fluid rounded-circle" 
+          <img className="img-responsive img-fluid rounded" 
             src={this.state.imageName} alt="" onClick={this.handleClick} />
         </div>
       </div>
