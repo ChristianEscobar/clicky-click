@@ -15,49 +15,60 @@ import image12 from './images/12.png';
 
 
 class Content extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // Populate array with images
+    this.images = [image1, image2, image3, image4, image5, image6,
+                  image7, image8, image9, image10, image11, image12];
+
+    // Randomly sort array
+    this.images.sort((a,b) => {return 0.5 - Math.random()});
+  }
+
   render() {
     return(
       <div className="container">
         <div className="row">
           <div className="col-3">
-            <Image imageName={image1}/>
+            <Image imageName={this.images[0]}/>
           </div>
           <div className="col-3">
-            <Image imageName={image2}/>
+            <Image imageName={this.images[1]}/>
           </div>
           <div className="col-3">
-            <Image imageName={image3}/>
+            <Image imageName={this.images[2]}/>
           </div>
           <div className="col-3">
-            <Image imageName={image4}/>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-3">
-            <Image imageName={image5}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={image6}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={image7}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={image8}/>
+            <Image imageName={this.images[3]}/>
           </div>
         </div>
         <div className="row">
           <div className="col-3">
-            <Image imageName={image9}/>
+            <Image imageName={this.images[4]}/>
           </div>
           <div className="col-3">
-            <Image imageName={image10}/>
+            <Image imageName={this.images[5]}/>
           </div>
           <div className="col-3">
-            <Image imageName={image11}/>
+            <Image imageName={this.images[6]}/>
           </div>
           <div className="col-3">
-            <Image imageName={image12}/>
+            <Image imageName={this.images[7]}/>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-3">
+            <Image imageName={this.images[8]}/>
+          </div>
+          <div className="col-3">
+            <Image imageName={this.images[9]}/>
+          </div>
+          <div className="col-3">
+            <Image imageName={this.images[10]}/>
+          </div>
+          <div className="col-3">
+            <Image imageName={this.images[11]}/>
           </div>
         </div>
       </div>
