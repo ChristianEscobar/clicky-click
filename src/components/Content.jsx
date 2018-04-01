@@ -40,10 +40,11 @@ class Content extends React.Component {
     if(this.state.imagesClicked.includes(event.target.src)) {
 
       // The image has been clicked.
-      // Reset score to zero
+      // Reset game
       this.props.changeScore(0, this.state.topScore);
 
       this.setState({
+        imagesClicked: [],
         currentScore: 0
       });
     } else {
