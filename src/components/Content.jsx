@@ -22,53 +22,88 @@ class Content extends React.Component {
     this.images = [image1, image2, image3, image4, image5, image6,
                   image7, image8, image9, image10, image11, image12];
 
-    // Randomly sort array
-    this.images.sort((a,b) => {return 0.5 - Math.random()});
+    // Set state
+    this.state = {
+      imagesClicked: [],
+      topScore: 0,
+      currentScore: 0
+    }
+
+    // Bind functions
+    this.handleImageClick = this.handleImageClick.bind(this);
+  }
+
+  handleImageClick(event) {
+    console.log(this.state);
+    // Check if this image has already been clicked
+    // If image has been clicked, reset score
+    // Otherwise, add to score and shuffle images
+    if(this.state.imagesClicked.includes(event.target.src)) {
+      console.log("image clicked!");
+      // The image has been clicked.
+      // Reset score to zero
+      this.setState({
+        currentScore: 0
+      });
+    } else {
+      console.log("new image clicked!");
+      let score = this.state.currentScore + 1;
+
+      this.setState({
+        imagesClicked: [...this.state.imagesClicked, event.target.src],
+        topScore: (this.state.topScore < score) ? score : this.state.topScore,
+        currentScore: score
+      })
+    }
   }
 
   render() {
+    // Randomly sort array
+    // This needs to happen at every render call
+    this.images.sort((a,b) => {return 0.5 - Math.random()});
+
     return(
       <div className="container">
         <div className="row">
           <div className="col-3">
-            <Image imageName={this.images[0]}/>
+            <Image imageName={this.images[0]} imageClick={this.handleImageClick}/>
           </div>
           <div className="col-3">
-            <Image imageName={this.images[1]}/>
+            <Image imageName={this.images[1]} imageClick={this.handleImageClick}/>
           </div>
           <div className="col-3">
-            <Image imageName={this.images[2]}/>
+            <Image imageName={this.images[2]} imageClick={this.handleImageClick}/>
           </div>
           <div className="col-3">
-            <Image imageName={this.images[3]}/>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-3">
-            <Image imageName={this.images[4]}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[5]}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[6]}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[7]}/>
+            <Image imageName={this.images[3]} imageClick={this.handleImageClick}/>
           </div>
         </div>
         <div className="row">
           <div className="col-3">
-            <Image imageName={this.images[8]}/>
+            <Image imageName={this.images[4]} imageClick={this.handleImageClick}/>
           </div>
           <div className="col-3">
-            <Image imageName={this.images[9]}/>
+            <Image imageName={this.images[5]} imageClick={this.handleImageClick}/>
           </div>
           <div className="col-3">
-            <Image imageName={this.images[10]}/>
+            <Image imageName={this.images[6]} imageClick={this.handleImageClick}/>
           </div>
           <div className="col-3">
-            <Image imageName={this.images[11]}/>
+            <Image imageName={this.images[7]} imageClick={this.handleImageClick}/>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-3">
+            <Image imageName={this.images[8]} imageClick={this.handleImageClick}/>
+          </div>
+          <div className="col-3">
+            <Image imageName={this.images[9]} imageClick={this.handleImageClick}/>
+          </div>
+          <div className="col-3">
+            <Image imageName={this.images[10]} imageClick={this.handleImageClick}/>
+          </div>
+          <div className="col-3">
+            <Image imageName={this.images[11]} imageClick={this.handleImageClick}/>
           </div>
         </div>
       </div>
