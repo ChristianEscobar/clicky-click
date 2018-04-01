@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Content from './components/Content';
 import Footer from './components/Footer';
-import Image from './components/Image';
 import JumboTron from './components/JumboTron';
 import Navigation from './components/Navigation';
 
