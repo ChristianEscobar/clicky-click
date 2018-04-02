@@ -43,6 +43,8 @@ class Content extends React.Component {
       // Reset game
       this.props.changeScore(0, this.state.topScore);
 
+      this.props.changeMessage("You've already clicked on that image.  Sorry!");
+
       this.setState({
         imagesClicked: [],
         currentScore: 0
@@ -54,7 +56,9 @@ class Content extends React.Component {
 
       currentTopScore = (currentTopScore < score) ? score : currentTopScore;
 
-      this.props.changeScore(score, currentTopScore);      
+      this.props.changeScore(score, currentTopScore); 
+      
+      this.props.changeMessage("Nice going!  Keep it up!");
 
       this.setState({
         imagesClicked: [...this.state.imagesClicked, event.target.src],

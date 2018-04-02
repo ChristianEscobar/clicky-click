@@ -5,7 +5,7 @@ class Messages extends React.Component {
   render(){
     return(
       <div className="message-text">
-        <span>{this.props.message}</span>
+        <span>{this.props.currentMessage}</span>
       </div>
     );
   }

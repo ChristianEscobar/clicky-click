@@ -12,10 +12,12 @@ class App extends Component {
 
     this.state = {
       currentScore: 0,
-      topScore: 0
+      topScore: 0,
+      currentMessage: "Click on any image to start the game!"
     }
 
     this.updateScore = this.updateScore.bind(this);
+    this.updateMessage = this.updateMessage.bind(this);
   }
 
   updateScore(score, hiScore) {
@@ -25,12 +27,18 @@ class App extends Component {
     });
   }
 
+  updateMessage(newMessage) {
+    this.setState({
+      currentMessage: newMessage
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <Navigation score={this.state.currentScore} topScore={this.state.topScore}/>
+        <Navigation message={this.state.currentMessage} score={this.state.currentScore} topScore={this.state.topScore}/>
         <JumboTron />
-        <Content changeScore={this.updateScore} />
+        <Content changeMessage={this.updateMessage} changeScore={this.updateScore} />
         <Footer />
       </div>
     );
