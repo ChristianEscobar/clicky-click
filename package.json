@@ -2,7 +2,7 @@
   "name": "clicky-click",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://xtiane.github.io/clicky-click",
+  "homepage": "https://xtiane.github.io/",
   "dependencies": {
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
