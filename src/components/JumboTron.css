@@ -1,0 +1,12 @@
+.jumbotron {
+  background-color: yellow;
+}
+
+.jumbotron > .container {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.jumbotron > .container > .title {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 5em;
+}
