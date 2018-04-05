@@ -66,13 +66,12 @@ class Content extends React.Component {
         currentScore: score
       })
     }
+
+    // Randomly sort array
+    this.images.sort((a,b) => {return 0.5 - Math.random()});
   }
 
   render() {
-    // Randomly sort array
-    // This needs to happen at every render call
-    this.images.sort((a,b) => {return 0.5 - Math.random()});
-
     return(
       <div className="container">
         <div className="row">
