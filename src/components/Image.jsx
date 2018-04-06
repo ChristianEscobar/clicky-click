@@ -8,7 +8,7 @@ class Image extends React.Component {
       <div className="card">
         <div className="card-body">
           <img className="img-responsive img-fluid rounded" 
-            src={this.props.imageName} alt="" onClick={this.props.imageClick}/>
+            src={this.props.imageName} alt={this.props.imageName} onClick={this.props.imageClick}/>
         </div>
       </div>
     );

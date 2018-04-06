@@ -1,26 +1,22 @@
-import React from 'react';
+import React from "react";
 import Image from './Image';
-import image1 from './images/1.png';
-import image2 from './images/2.png';
-import image3 from './images/3.png';
-import image4 from './images/4.png';
-import image5 from './images/5.png';
-import image6 from './images/6.png';
-import image7 from './images/7.png';
-import image8 from './images/8.png';
-import image9 from './images/9.png';
-import image10 from './images/10.png';
-import image11 from './images/11.png';
-import image12 from './images/12.png';
-
+//import data from "./data.json";
+import image1 from "./images/1.png";
+import image2 from "./images/2.png";
+import image3 from "./images/3.png";
+import image4 from "./images/4.png";
+import image5 from "./images/5.png";
+import image6 from "./images/6.png";
+import image7 from "./images/7.png";
+import image8 from "./images/8.png";
+import image9 from "./images/9.png";
+import image10 from "./images/10.png";
+import image11 from "./images/11.png";
+import image12 from "./images/12.png";
 
 class Content extends React.Component {
   constructor(props) {
     super(props);
-
-    // Populate array with images
-    this.images = [image1, image2, image3, image4, image5, image6,
-                  image7, image8, image9, image10, image11, image12];
 
     // Set state
     this.state = {
@@ -29,8 +25,14 @@ class Content extends React.Component {
       currentScore: 0
     }
 
+    // Create images array
+    this.images = [image1, image2, image3, image4, image5, 
+                    image6, image7, image8, image9, image10, image11, image12];
+
     // Bind functions
     this.handleImageClick = this.handleImageClick.bind(this);
+
+    this.createImages = this.createImages.bind(this);
   }
 
   handleImageClick(event) {
@@ -68,53 +70,19 @@ class Content extends React.Component {
     }
 
     // Randomly sort array
+    //data.images.sort((a,b) => {return 0.5 - Math.random()});
     this.images.sort((a,b) => {return 0.5 - Math.random()});
+  }
+
+  createImages() {
+    return this.images.map( image => <Image key={image} imageName={image} imageClick={this.handleImageClick}/>);
   }
 
   render() {
     return(
       <div className="container">
         <div className="row">
-          <div className="col-3">
-            <Image imageName={this.images[0]} imageClick={this.handleImageClick}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[1]} imageClick={this.handleImageClick}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[2]} imageClick={this.handleImageClick}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[3]} imageClick={this.handleImageClick}/>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-3">
-            <Image imageName={this.images[4]} imageClick={this.handleImageClick}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[5]} imageClick={this.handleImageClick}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[6]} imageClick={this.handleImageClick}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[7]} imageClick={this.handleImageClick}/>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-3">
-            <Image imageName={this.images[8]} imageClick={this.handleImageClick}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[9]} imageClick={this.handleImageClick}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[10]} imageClick={this.handleImageClick}/>
-          </div>
-          <div className="col-3">
-            <Image imageName={this.images[11]} imageClick={this.handleImageClick}/>
-          </div>
+          {this.createImages()}   
         </div>
       </div>
     );
